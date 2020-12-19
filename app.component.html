@@ -1,0 +1,57 @@
+<div class="container">
+  <div>
+    <input type="text" (keyup)="onKey($event)" />
+    <select
+      name=""
+      id=""
+      #selectDisciplina
+      (change)="onSelectDisciplina(selectDisciplina.value)"
+    >
+      <option value="">Selecione uma disciplina</option>
+      <option
+        [value]="disciplina.nome"
+        *ngFor="let disciplina of listDisciplinas"
+      >
+        {{ disciplina.nome }}
+      </option>
+    </select>
+
+    <h2>Selecione os alunos que deseja matricular:</h2>
+    <div *ngFor="let alunos of listAlunos">
+      <input
+        type="checkbox"
+        [(ngModel)]="isChecked"
+        id="{{ alunos.nroMatricula }}"
+        name="{{ alunos.nome }}"
+        (change)="checkAlunos(alunos)"
+      />
+
+      <label>{{ alunos.nome }}</label>
+    </div>
+
+    <button class="btn" (click)="matricular()">Matricular/Fechar turma</button>
+  </div>
+
+  <div>
+    <h2>Buscar turma:</h2>
+    <input type="text" (keyup)="buscarTurma($event)" />
+    <button (click)="exibirTurma()">Buscar</button>
+
+    <div>
+      <table style="width: 100%">
+        <tr>
+          <th>Aluno</th>
+          <th>Disciplina</th>
+        </tr>
+        <tr>
+          <td>
+            {{ exibirDisciplina }}
+          </td>
+        </tr>
+        <tr *ngFor="let aluno of exibirAlunos">
+          <td>{{aluno.nome}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

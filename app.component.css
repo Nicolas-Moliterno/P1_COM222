@@ -1,0 +1,34 @@
+.container {
+    display: flex;
+    background-color: aquamarine;
+    width: auto;
+}
+
+
+.alunos{
+    display: flex;
+    background-color: blue;
+}
+
+
+.btn{
+    background-color: blueviolet;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+
+
+select{
+    width: 500px;
+    
+}
+
+input{
+    width: 500px;
+}
+
+.tabela{
+    text-align: center;
+}
